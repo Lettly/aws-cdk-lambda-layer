@@ -1,0 +1,12 @@
+RestorePITR:
+  handler: missed-split/restore-PITR/restore-PITR.handler
+  memorySize: 512
+  runtime: python3.8
+  role: !GetAtt RestorePITRRole.Arn
+  timeout: 60
+  layers:
+    - !Ref AwsCliLayerLambdaLayer
+  package:
+    patterns: 
+      - "!./**"
+      - 'missed-split/restore-PITR/restore-PITR.py'

@@ -1,0 +1,12 @@
+CheckPITRStatus:
+  handler: missed-split/check-PITR-status/check-PITR-status.handler
+  memorySize: 512
+  runtime: python3.8
+  role: !GetAtt CheckPITRStatusRole.Arn
+  timeout: 60
+  layers:
+    - !Ref AwsCliLayerLambdaLayer
+  package:
+    patterns: 
+      - "!./**"
+      - 'missed-split/check-PITR-status/check-PITR-status.py'

@@ -1,0 +1,34 @@
+Resources:
+  RestorePITRRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument: 
+        Statement: 
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies: 
+        - PolicyName: root
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action: 
+                  - dynamodb:RestoreTableToPointInTime
+                  - dynamodb:CreateTable
+                  - dynamodb:DescribeTable
+                Resource: 
+                  - ARN_TB1
+                  - ARN_TB2
+      RoleName: ${self:app}-${self:provider.stage}-split-PITR-role
+      Tags:
+        - Key: Environment
+          Value: ${self:provider.stage}
+        - Key: Name
+          Value: ${self:app}-${self:provider.stage}-split-PITR-role
+        - Key: Product
+          Value: ${self:app}  
