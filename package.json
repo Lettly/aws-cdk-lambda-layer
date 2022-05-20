@@ -1,0 +1,24 @@
+{
+  "name": "aws-cli-lambda-layer",
+  "version": "1.0.0",
+  "description": "Generate a lambda layer for serverless framework",
+  "main": "index.js",
+  "scripts": {
+		"sls": "sls",
+		"deploy": "node layer-generator/build.js && sls deploy",
+		"remove": "sls remove"
+	},
+	"devDependencies": {
+		"serverless": "2.52.1"
+	},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lettly/aws-cli-lambda-layer.git"
+  },
+  "author": "Marco Giuseppini",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lettly/aws-cli-lambda-layer/issues"
+  },
+  "homepage": "https://github.com/Lettly/aws-cli-lambda-layer#readme"
+}
