@@ -1,4 +1,4 @@
-# aws-cdk-lambda-layer
+# AWS CLI Lambda Layer For Serverless Framework
 Generate a lambda layer for serverless framework 
 
 ## Source
